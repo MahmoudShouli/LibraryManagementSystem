@@ -1,5 +1,5 @@
 CREATE TABLE [Books] (
-  [BookID] int PRIMARY KEY,
+  [BookID] int IDENTITY(1,1) PRIMARY KEY,
   [Title] nvarchar(255),
   [Author] nvarchar(255),
   [ISBN] nvarchar(255),
@@ -11,7 +11,7 @@ CREATE TABLE [Books] (
 GO
 
 CREATE TABLE [Borrowers] (
-  [BorrowerID] int PRIMARY KEY,
+  [BorrowerID] int IDENTITY(1,1) PRIMARY KEY,
   [First_Name] nvarchar(255),
   [Last_Name] nvarchar(255),
   [Email] nvarchar(255),
@@ -21,7 +21,7 @@ CREATE TABLE [Borrowers] (
 GO
 
 CREATE TABLE [Loans] (
-  [LoanID] int PRIMARY KEY,
+  [LoanID] int IDENTITY(1,1) PRIMARY KEY,
   [BookID] int,
   [BorrowerID] int,
   [Date_Borrowed] date,
@@ -43,3 +43,4 @@ FOREIGN KEY ([BorrowerID])
 REFERENCES [Borrowers] ([BorrowerID]) 
 ON DELETE CASCADE;
 GO
+
