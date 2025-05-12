@@ -114,3 +114,11 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - Third, the RankedGenres CTE breaks the table into partitions, each partition is the age group with all genres and counts.
   - Each partition is ranked based on the count.
   - Finally, we select records with the highest rank to get the most preferred genre for each group.
+
+
+
+
+- Stored Procedure - Borrowed Books Report:
+  - This procedure retrieves all books borrowed within the given range, with details like borrower name and borrowing date.
+  - It accepts the start date and end date as parameters.
+  - *BETWEEN* is used with the *WHERE* to filter borrowing dates that fall in the expected range.
