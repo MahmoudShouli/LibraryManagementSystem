@@ -37,3 +37,11 @@ BEGIN
 		
 	RETURN @Fee;
 END
+
+
+/* usage :
+
+SELECT LoanID, dbo.fn_fn_CalculateOverdueFees(LoanID) AS [Overdue fee]
+FROM Loans
+
+*/
