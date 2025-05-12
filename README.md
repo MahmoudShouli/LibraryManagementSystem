@@ -122,3 +122,11 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - This procedure retrieves all books borrowed within the given range, with details like borrower name and borrowing date.
   - It accepts the start date and end date as parameters.
   - *BETWEEN* is used with the *WHERE* to filter borrowing dates that fall in the expected range.
+
+
+
+
+- Trigger Implementation:
+  - This trigger logs an entry into a separate AuditLog table whenever a book's status changes from 'Available' to 'Borrowed' or vice versa.
+  - It is a DML trigger that fires upon updates to the Books table, specifically the Current_Status column.
+  - It uses the *inserted* database to get the values of the row that was updated and triggered the trigger.
