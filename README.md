@@ -91,4 +91,13 @@ The DDL file that creates the tables and the constraints was generated from [dbd
 - Overdue Analysis:
   - This query lists all books overdue by more than 30 days with their associated borrowers.
   - Loans is joined with Borrowers to get the borrower name.
-  - the fn_CalculateOverdueFees is reused here as loans with over \$30 fee will definitely be overdue for more than 30 days.
+  - the fn_CalculateOverdueFees function is reused here as loans with over \$30 fee will definitely be overdue for more than 30 days.
+
+
+
+
+- Author Popularity using Aggregation:
+  - This query ranks authors by the borrowing frequency of their books.
+  - The books table is grouped by author to group each author with their books.
+  - The *SUM* aggregate is used along with the fn_BookBorrowingFrequency to sum each author's total borrowing count.
+  - Rank using *DENSE_RANK* by the total sum.
