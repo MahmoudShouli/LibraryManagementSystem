@@ -41,7 +41,7 @@ END
 
 /* usage :
 
-SELECT LoanID, dbo.fn_CalculateOverdueFees(LoanID) AS [Overdue fee]
+SELECT LoanID, dbo.fn_CalculateOverdueFees(LoanID) AS [Overdue fee ($)]
 FROM Loans
 
 */
