@@ -24,3 +24,20 @@ BEGIN
 	SET @ErrorMessage = 'No error. Sucessfully added';
 END;
 
+/* usage
+
+DECLARE @Msg NVARCHAR(255), @ID INT, @Today DATE = GETDATE();
+
+EXEC sp_AddNewBorrower
+    @FirstName = 'Lina',
+    @LastName = 'Kamal',
+    @Email = 'lina.kamal@example.com',
+    @DateOfBirth = '1990-08-15',
+    @MembershipDate = @Today,
+    @ErrorMessage = @Msg OUTPUT,
+    @NewBorrowerID = @ID OUTPUT;
+
+SELECT @Msg AS Message, @ID AS BorrowerID;
+
+
+ */
