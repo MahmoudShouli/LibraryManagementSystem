@@ -18,10 +18,12 @@ The DDL file that creates the tables and the constraints was generated from [dbd
 
 ## Complex Queries and Procedures
 
+
 - List of Borrowed Books:
   - This is a simple query that returned borrowed books that belong to a specific borrower.
   - The borrower ID is given at the start using a local variable.
   - The Loans table is joined with the Books table just to get the book title for more clarity.
+
 
 
 
@@ -34,11 +36,13 @@ The DDL file that creates the tables and the constraints was generated from [dbd
 
 
 
+
 - Borrowing Frequency using Window Functions:
   - This query ranks borrowers based on borrowing frequency.
   - Borrowers with most loans will have the highest rank.
   - It groups the table by borrowerID then applies the *COUNT* to calculate how many books that borrower has.
   - *DENSE_RANK()* is applied to prevent gaps and provide contiguous ranks.
+
 
 
 
@@ -53,11 +57,13 @@ The DDL file that creates the tables and the constraints was generated from [dbd
 
 
 
+
 - Stored Procedure - Add New Borrowers:
   - This procedure inserts a new borrower with the given arguments to the borrowers table.
   - It checks if the given email already exists, if it does, it returns an error message.
   - If it doesn't, it inserts.
   - *SCOPE_IDENTITY()* is used to return the last identity value in the current scope, which is the new borrower id in our case.
+
 
 
 
@@ -70,4 +76,11 @@ The DDL file that creates the tables and the constraints was generated from [dbd
     - if the date returned is before or equal to the due date, then no fee will be given.
     - else the *DATEDIFF* is used to compute the difference in days.
     - \$1 for first 30 days, then \$2 after using an algorithm.
-  
+
+
+
+
+- Database Function -  Book Borrowing Frequency:
+  - This function computes the frequency of borrowing for a given book.
+  - It accepts a book ID and returns the number of times that book has been borrowed.
+  - It does a simple query when it selects the *COUNT* of times that book ID is found in the Loans table.
