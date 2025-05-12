@@ -84,3 +84,11 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - This function computes the frequency of borrowing for a given book.
   - It accepts a book ID and returns the number of times that book has been borrowed.
   - It does a simple query when it selects the *COUNT* of times that book ID is found in the Loans table.
+
+
+
+
+- Overdue Analysis:
+  - This query lists all books overdue by more than 30 days with their associated borrowers.
+  - Loans is joined with Borrowers to get the borrower name.
+  - the fn_CalculateOverdueFees is reused here as loans with over \$30 fee will definitely be overdue for more than 30 days.
