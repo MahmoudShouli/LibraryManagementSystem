@@ -101,3 +101,16 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - The books table is grouped by author to group each author with their books.
   - The *SUM* aggregate is used along with the fn_BookBorrowingFrequency to sum each author's total borrowing count.
   - Rank using *DENSE_RANK* by the total sum.
+
+
+
+
+- Genre Preference by Age using Group By:
+  - This query fetches the most popular book genre amongst different age groups.
+  - First, the BorrowersWithAgeGroup CTE represents each borrower with what age group they belong to.
+  - Second, the GenreCounts CTE calculates the count of each genre per age group, meaning how many times a book with that genre was borrowed from borrowers in that age group.
+    - The BorrowersWithAgeGroup is joined with Loans to get the BookID that each borrower borrowed.
+    - Then the joined table is joined with Books to get the book genre.
+  - Third, the RankedGenres CTE breaks the table into partitions, each partition is the age group with all genres and counts.
+  - Each partition is ranked based on the count.
+  - Finally, we select records with the highest rank to get the most preferred genre for each group.
