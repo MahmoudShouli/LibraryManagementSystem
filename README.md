@@ -39,14 +39,15 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - *DENSE_RANK()* is applied to prevent gaps and provide contiguous ranks.
 
 
+
 - Popular Genre Analysis using Joins and Window Functions:
- - This query returns the most popular genre for a given month.
- - The month is a local variable.
- - Loans is joined with Books to get the book genre.
- - The *WHERE* filters the rows to get only books borrowed with the given month.
- - The result is grouped by genres so we can get hold of the count of books per genre.
- - *RANK()* is applied to rank genres, the genre with the highest number of books gets rank 1.
- - Finally, *TOP* is applied to only retrieve the most popular genre.
+  - This query returns the most popular genre for a given month.
+  - The month is a local variable.
+  - Loans is joined with Books to get the book genre.
+  - The *WHERE* filters the rows to get only books borrowed with the given month.
+  - The result is grouped by genres so we can get hold of the count of books per genre.
+  - *RANK()* is applied to rank genres, the genre with the highest number of books gets rank 1.
+  - Finally, *TOP* is applied to only retrieve the most popular genre.
   
 
 
