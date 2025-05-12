@@ -18,19 +18,25 @@ The DDL file that creates the tables and the constraints was generated from [dbd
 
 ## Complex Queries and Procedures
 
-- List of Borrowed Books :
-    - This is a simple query that returned borrowed books that belong to a specific borrower.
-    - The borrower ID is given at the start using a local variable.
-    - The Loans table is joined with the Books table just to get the book title for more clarity.
+- List of Borrowed Books:
+  - This is a simple query that returned borrowed books that belong to a specific borrower.
+  - The borrower ID is given at the start using a local variable.
+  - The Loans table is joined with the Books table just to get the book title for more clarity.
 
 
 - Active Borrowers with CTEs:
-    - This query retrieves borrowers who've borrowed 2 or more books but haven't returned any.
-    - The first CTE (BorrowersThatReturnedAny) returns the borrowers that returned a book.
-    - The second CTE (BorrowersThatReturnedNone) first excludes borrowers that returned any book.
-    - It groups by the BorrowerID so that we can get hold of the count of books each borrower has.
-    - Finally, it selects only those with two or more books.
+  - This query retrieves borrowers who've borrowed 2 or more books but haven't returned any.
+  - The first CTE (BorrowersThatReturnedAny) returns the borrowers that returned a book.
+  - The second CTE (BorrowersThatReturnedNone) first excludes borrowers that returned any book.
+  - It groups by the BorrowerID so that we can get hold of the count of books each borrower has.
+  - Finally, it selects only those with two or more books.
 
 
+- Borrowing Frequency using Window Functions:
+  - This query ranks borrowers based on borrowing frequency.
+  - Borrowers with most loans will have the highest rank.
+  - It groups the table by borrowerID then applies the COUNT to calculate how many books that borrower has.
+  - DENSE_RANK() is applied to prevent gaps and provide contiguous ranks.
+  
 
 
