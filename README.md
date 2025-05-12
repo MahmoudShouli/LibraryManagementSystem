@@ -58,3 +58,16 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - It checks if the given email already exists, if it does, it returns an error message.
   - If it doesn't, it inserts.
   - *SCOPE_IDENTITY()* is used to return the last identity value in the current scope, which is the new borrower id in our case.
+
+
+
+- Database Function - Calculate Overdue Fees:
+  - This function computes overdue fees for a given loan.
+  - It accepts a loan ID and returns a calculated fee for that loan.
+  - First, it retrieves the due date and returned date for the loan.
+  - Second, it does multiple checks:
+    - if the date returned is null, meaning the book hasn't been returned yet, then the returned det is set to today's date, i.e. the fee will be ongoing.
+    - if the date returned is before or equal to the due date, then no fee will be given.
+    - else the *DATEDIFF* is used to compute the difference in days.
+    - \$1 for first 30 days, then \$2 after using an algorithm.
+  
