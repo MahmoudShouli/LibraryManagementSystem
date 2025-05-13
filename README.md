@@ -138,3 +138,12 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - This procedure retrieves all borrowers who have overdue books.
   - It stores borrowers with overdue books in a temporary table (OverdueBorrowers).
   - It then joins the temporary table with Loans to get the overdue books for those borrowers.
+
+
+
+
+- Weekly peak days:
+  - This query determines the most 3 days in the week that have the most share of the loans and displays the result of each day as a percentage of all loans.
+  - It uses *DATENAME* to get the weekday.
+  - Groups by the weekday and ranks by the count of records (loans) for that day.
+  - Displays as a percentage of all using *SUM* and a formatter.
