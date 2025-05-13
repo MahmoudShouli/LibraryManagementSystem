@@ -130,3 +130,11 @@ The DDL file that creates the tables and the constraints was generated from [dbd
   - This trigger logs an entry into a separate AuditLog table whenever a book's status changes from 'Available' to 'Borrowed' or vice versa.
   - It is a DML trigger that fires upon updates to the Books table, specifically the Current_Status column.
   - It uses the *inserted* database to get the values of the row that was updated and triggered the trigger.
+
+
+
+
+- SQL Stored Procedure with Temp Table:
+  - This procedure retrieves all borrowers who have overdue books.
+  - It stores borrowers with overdue books in a temporary table (OverdueBorrowers).
+  - It then joins the temporary table with Loans to get the overdue books for those borrowers.
