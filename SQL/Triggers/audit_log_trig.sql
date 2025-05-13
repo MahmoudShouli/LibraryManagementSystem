@@ -20,12 +20,12 @@ END
 
 /* usage
 
-	SELECT * FROM AuditLog;
+SELECT * FROM AuditLog;
 
-	UPDATE Books
-	SET Current_Status =  'Available'
-	WHERE BookID = 1;
+UPDATE Books
+SET Current_Status =  'Available'
+WHERE BookID = 1;
 
-	SELECT * FROM AuditLog;
+SELECT * FROM AuditLog;
 
 */
